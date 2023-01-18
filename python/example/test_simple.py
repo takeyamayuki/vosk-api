@@ -8,12 +8,12 @@ from vosk import Model, KaldiRecognizer, SetLogLevel
 # You can set log level to -1 to disable debug messages
 SetLogLevel(0)
 
-wf = wave.open(sys.argv[1], "rb")
+wf = wave.open("futu.wav", "rb")
 if wf.getnchannels() != 1 or wf.getsampwidth() != 2 or wf.getcomptype() != "NONE":
     print("Audio file must be WAV format mono PCM.")
     sys.exit(1)
 
-model = Model(lang="en-us")
+model = Model(lang="ja")
 
 # You can also init model by name or with a folder path
 # model = Model(model_name="vosk-model-en-us-0.21")

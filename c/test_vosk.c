@@ -1,7 +1,8 @@
 #include <vosk_api.h>
 #include <stdio.h>
 
-int main() {
+int main()
+{
     FILE *wavin;
     char buf[3200];
     int nread, final;
@@ -11,14 +12,18 @@ int main() {
 
     wavin = fopen("test.wav", "rb");
     fseek(wavin, 44, SEEK_SET);
-    while (!feof(wavin)) {
-         nread = fread(buf, 1, sizeof(buf), wavin);
-         final = vosk_recognizer_accept_waveform(recognizer, buf, nread);
-         if (final) {
-             printf("%s\n", vosk_recognizer_result(recognizer));
-         } else {
-             printf("%s\n", vosk_recognizer_partial_result(recognizer));
-         }
+    while (!feof(wavin))
+    {
+        nread = fread(buf, 1, sizeof(buf), wavin);
+        final = vosk_recognizer_accept_waveform(recognizer, buf, nread);
+        if (final)
+        {
+            printf("%s\n", vosk_recognizer_result(recognizer));
+        }
+        else
+        {
+            printf("%s\n", vosk_recognizer_partial_result(recognizer));
+        }
     }
     printf("%s\n", vosk_recognizer_final_result(recognizer));
 
