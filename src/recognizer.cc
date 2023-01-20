@@ -823,6 +823,7 @@ const char* Recognizer::PartialResult()
             word["start"] = samples_round_start_ / sample_frequency_ + (frame_offset_ + times[i].first) * 0.03;
             word["end"] = samples_round_start_ / sample_frequency_ + (frame_offset_ + times[i].second) * 0.03;
             word["conf"] = conf[i];
+            printf("word: %s, start: %f, end: %f, conf: %f");
             res["partial_result"].append(word);
 
             if (i) {

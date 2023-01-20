@@ -59,6 +59,7 @@ class Recognizer {
         const char* FinalResult();
         const char* PartialResult();
         void Reset();
+        // std::vector<int32> &words;
 
     private:
         void InitState();
